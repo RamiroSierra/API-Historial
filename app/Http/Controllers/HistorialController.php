@@ -7,59 +7,21 @@ use Illuminate\Http\Request;
 
 class HistorialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public static function registrarAccion($tarea_id, $accion)
     {
-        //
+        $tarea = Tarea::find($tarea_id);
+        
+        if($tarea) {
+            Historial::create([
+                'titulo_tarea' => $tarea->titulo,
+                'accion' => $accion,
+                'usuario_id' => $tarea->autor_id
+            ]);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function listar()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Historial $historial)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Historial $historial)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Historial $historial)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Historial $historial)
-    {
-        //
+        return Historial::all();
     }
 }
