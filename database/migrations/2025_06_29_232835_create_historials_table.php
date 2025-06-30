@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('historials', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tarea_id');
             $table->string('titulo_tarea');
             $table->string('accion');
             $table->unsignedBigInteger('usuario_id');
