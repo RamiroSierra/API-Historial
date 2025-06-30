@@ -12,7 +12,7 @@ class HistorialController extends Controller
         $historial = new Historial();
         $historial->tarea_id = $request->tarea_id;
         $historial->titulo_tarea = $request->titulo_tarea;
-        $historial->estado_actual = $request->estado_actual;
+        $historial->accion = $request->accion;
         $historial->usuario_id = $request->usuario_id;
         $historial->save();
 
